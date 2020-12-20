@@ -123,3 +123,6 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'food:index'
 LOGIN_URL = 'login'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
+MEDIA_URL = '/pictures/'
