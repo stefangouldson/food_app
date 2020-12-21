@@ -15,7 +15,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ('item_name', 'item_desc', 'item_price')
     search_fields = ('item_name',)
     actions = ('change_price_to_free',)
-    fields = ('item_name', 'item_desc')
+    # fields = ('item_name', 'item_desc')
     list_editable = ('item_price',)
     list_filter = ['item_price']
 

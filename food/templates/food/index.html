@@ -11,7 +11,8 @@
         <div class="col-4">  
             <h1>{{item.item_name}}</h1>
             <h3>{{item.item_desc}}</h3>
-            <h3>£{{item.item_price}}</h3>  
+            <h3>£{{item.item_price}}</h3>
+            <h6>{{ item.user_name }}</h6>  
         </div>
         <div class="col-2">
             <a class="btn btn-success" href="{% url 'food:detail' item.id %}">Details</a>
