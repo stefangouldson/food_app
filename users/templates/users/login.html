@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{% extends 'food/base.html' %}
 
-</head>
-<body>
+{% block body %}
     <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="">{{field.name}}</label>
+                {{field}}
+            </div>
+        {% endfor %}
+        <!-- {{ form }} -->
         <button type="submit" class="btn btn-success btn-sm">Login</button>
     </form>
-</body>
-</html>
+{% endblock %}
