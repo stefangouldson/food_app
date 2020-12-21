@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 # def index(request):
@@ -29,6 +31,15 @@ class IndexClassView(ListView):
     model = Item
     template_name = 'food/index.html'
     context_object_name = 'item_list'
+    paginate_by = 2
+
+    def get_queryset(self):
+        query = self.request.GET.get('item_name')
+        if query:
+            object_list = self.model.objects.filter(item_name__icontains=query)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
 
 class FoodDetailView(DetailView):
